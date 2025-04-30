@@ -1,0 +1,5 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"c:/Users/User/Pong/Content/Grass.png","c:/Users/User/Pong/Content/bin/DesktopGL/Content/Grass.xnb","TextureProcessor","Texture2DContent",456,4181,0.0795132
+"c:/Users/User/Pong/Content/Grid.png","c:/Users/User/Pong/Content/bin/DesktopGL/Content/Grid.xnb","TextureProcessor","Texture2DContent",140,4181,0.0026087
+"c:/Users/User/Pong/Content/infinite.fx","c:/Users/User/Pong/Content/bin/DesktopGL/Content/infinite.xnb","EffectProcessor","CompiledEffectContent",1234,1910,0.1701208
+"c:/Users/User/Pong/Content/Player.png","c:/Users/User/Pong/Content/bin/DesktopGL/Content/Player.xnb","TextureProcessor","Texture2DContent",126,4181,0.001982

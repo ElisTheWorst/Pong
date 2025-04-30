@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{c25c6a59-c5d0-4c60-8316-d4dbc5f5854f}">
+		<property name="assetPath">
+			<value>SFX/Crates/Impacts/Hit Crate 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.46843750000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b0c73ecd-f12c-4c13-a807-968259342203}</destination>
+		</relationship>
+	</object>
+</objects>

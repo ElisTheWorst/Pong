@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{f4c3b86b-4a70-4104-b12c-c7cba411982d}">
+		<property name="assetPath">
+			<value>DesignedPickaxe2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.32033333333333336</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b0c73ecd-f12c-4c13-a807-968259342203}</destination>
+		</relationship>
+	</object>
+</objects>
