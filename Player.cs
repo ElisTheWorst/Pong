@@ -8,7 +8,7 @@ using System.Diagnostics;
 public class Player
 {
     Sprite sprite;
-    public Vector2 pos;
+    public Vector2 pos = Vector2.Zero;
     Vector2 vel = Vector2.Zero, newVel = Vector2.Zero, externalVel = Vector2.Zero;
     public CharacterState state, lastState;
 

@@ -13,7 +13,6 @@ namespace Pong;
 public class Game1 : Game
 {
     GameManager gameManager;
-    Input input;
     Player player;
 
     public static List<Sprite> sprites = new List<Sprite>();
@@ -35,7 +34,6 @@ public class Game1 : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
-        input = new();
         gameManager = new();
         player = new();
     }
@@ -90,7 +88,7 @@ public class Game1 : Game
 
         Sound.Update();
         gameManager.Update(delta);
-        input.Update(delta);
+        Input.Update(delta);
         player.Update(delta);
         Camera.Update(delta);
         
@@ -114,46 +112,44 @@ public class Game1 : Game
         // Render Grid Background.
         {
             Matrix projection = Matrix.CreateOrthographicOffCenter(0, width, height, 0, 0, 1);
-            Matrix uv_transform = GetUVTransform(_background, Vector2.Zero, 1, GraphicsDevice.Viewport);
+            Matrix uv_transform = GetUVTransform(_background, -Vector2.UnitY, 1, GraphicsDevice.Viewport);
             
 
             _infinite.Parameters["view_projection"].SetValue(Matrix.Identity * projection);
             _infinite.Parameters["uv_transform"].SetValue(Matrix.Invert(uv_transform));
 
-            // TODO: Add your drawing code here
+
             _spriteBatch.Begin(transformMatrix: transformMatrix, effect: _infinite, samplerState: SamplerState.PointWrap);
             _spriteBatch.Draw(_background, GraphicsDevice.Viewport.Bounds, Color.White);
             _spriteBatch.End();
         }
 
-
+        // Loops through the sprites list and renders each one.
         _spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointClamp);
         foreach(Sprite sprite in sprites) sprite.Draw(_spriteBatch);
         _spriteBatch.End();
 
         base.Draw(gameTime);
 
+        // ImGui Rendering
         GuiRenderer.BeginLayout(gameTime);
-
         if (_toolActive)
         {
             ImGui.Begin("Dev Menu: Fuck you", ref _toolActive, ImGuiWindowFlags.MenuBar);
-            // if (ImGui.BeginMenuBar())
-            // {
-            //     if (ImGui.BeginMenu("File"))
-            //     {
-            //         if (ImGui.MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
-            //         if (ImGui.MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
-            //         if (ImGui.MenuItem("Close", "Ctrl+W")) { _toolActive = false; }
-            //         ImGui.EndMenu();
-            //     }
-            //     ImGui.EndMenuBar();
-            // }
+            if (ImGui.BeginMenuBar())
+            {
+                if (ImGui.BeginMenu("File"))
+                {
+                    if (ImGui.MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
+                    if (ImGui.MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
+                    if (ImGui.MenuItem("Close", "Ctrl+W")) { _toolActive = false; }
+                    ImGui.EndMenu();
+                }
+                ImGui.EndMenuBar();
+            }
             ImGui.SliderFloat("CameraZoom", ref Camera.zoom, .1f, 5f);
             ImGui.End();
         }
-
-
         GuiRenderer.EndLayout();
     }
 

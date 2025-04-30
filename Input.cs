@@ -9,7 +9,7 @@ public class Input : IUpdatable
     public static MouseState mouse;
     public static Vector2 move;
 
-    public void Update(float delta)
+    public static void Update(float delta)
     {
         keyboard = Keyboard.GetState();
         mouse = Mouse.GetState();
